@@ -29,8 +29,11 @@ add_action( 'after_setup_theme', 'bizpro_theme_setup' );
 
 // Enqueue styles and scripts
 function bizpro_enqueue_assets() {
-    // Stylesheet
+    // Main stylesheet
     wp_enqueue_style( 'bizpro-style', get_stylesheet_uri(), array(), '1.0.0' );
+    
+    // Additional CSS
+    wp_enqueue_style( 'bizpro-main', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0' );
     
     // JavaScript
     wp_enqueue_script( 'bizpro-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '1.0.0', true );
