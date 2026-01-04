@@ -39,4 +39,7 @@ function bizpro_enqueue_assets() {
     wp_enqueue_script( 'bizpro-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'bizpro_enqueue_assets' );
+
+// Include custom post types
+require_once get_template_directory() . '/inc/custom-post-types.php';
 ?>
