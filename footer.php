@@ -18,15 +18,15 @@
             </div>
             <div class="footer-widget">
                 <h3>Contact</h3>
-                <p>Email: info@bizpro.com<br>
-                Phone: (555) 123-4567</p>
+                <p>Email: surya.yousufzai@auaf.edu.af<br>
+                Phone: +41 762 322 97</p>
             </div>
         </div>
         
         <div class="site-info">
             <p>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
             <p>Powered by <a href="<?php echo esc_url( __( 'https://wordpress.org/' ) ); ?>">WordPress</a> | 
-            Theme: BizPro by <a href="#">Your Name</a></p>
+            Theme: BizPro by <a href="#">Surya Yousufzai</a></p>
         </div>
     </div>
 </footer>
