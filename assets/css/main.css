@@ -3229,6 +3229,246 @@ body.page,
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================
+   PORTFOLIO SECTION - HOMEPAGE - FIXED
+   ========================================== */
+
+.portfolio-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+    position: relative;
+}
+
+.portfolio-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    counter-reset: homePortfolio 0;
+}
+
+/* Portfolio Card */
+.portfolio-item-modern {
+    position: relative;
+    background: linear-gradient(145deg, rgba(20, 20, 35, 0.95) 0%, rgba(15, 15, 25, 0.95) 100%);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+.portfolio-item-modern:hover {
+    transform: translateY(-8px);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(124, 58, 237, 0.3);
+}
+
+/* Remove the bright pink border effect */
+.portfolio-item-modern::after {
+    display: none;
+}
+
+/* Number Badge */
+.portfolio-item-modern::before {
+    counter-increment: homePortfolio;
+    content: '0' counter(homePortfolio);
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    z-index: 3;
+    transition: all 0.5s ease;
+}
+
+.portfolio-item-modern:hover::before {
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6);
+}
+
+/* Image Container */
+.portfolio-item-modern .portfolio-image,
+.portfolio-item-modern > a > img,
+.portfolio-item-modern > img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.8);
+    position: relative;
+}
+
+.portfolio-item-modern:hover .portfolio-image,
+.portfolio-item-modern:hover > a > img,
+.portfolio-item-modern:hover > img {
+    transform: scale(1.08);
+    filter: brightness(0.95);
+}
+
+/* Dark overlay on image */
+.portfolio-item-modern .portfolio-image::after,
+.portfolio-item-modern > a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 15, 0.1) 0%,
+        rgba(10, 10, 15, 0.5) 50%,
+        rgba(10, 10, 15, 0.9) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Content Area */
+.portfolio-item-modern .portfolio-info,
+.portfolio-item-modern .portfolio-content {
+    padding: 32px 28px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Client Name */
+.portfolio-item-modern .portfolio-client {
+    font-size: 12px;
+    color: rgba(167, 139, 250, 1);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+/* Title */
+.portfolio-item-modern h3,
+.portfolio-item-modern .portfolio-title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #fff;
+    margin: 0 0 12px 0;
+    
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.portfolio-item-modern h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.portfolio-item-modern:hover h3,
+.portfolio-item-modern:hover h3 a {
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Description */
+.portfolio-item-modern p,
+.portfolio-item-modern .portfolio-excerpt {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(148, 163, 184, 0.9);
+    margin: 0 0 20px 0;
+    
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+/* Button */
+.portfolio-item-modern .portfolio-link,
+.portfolio-item-modern a[class*="button"],
+.portfolio-item-modern .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    margin-top: auto;
+    width: fit-content;
+}
+
+.portfolio-item-modern:hover .portfolio-link,
+.portfolio-item-modern:hover a[class*="button"] {
+    transform: translateX(4px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+    gap: 16px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .portfolio-grid-modern {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .portfolio-item-modern {
+        min-height: 480px;
+    }
+    
+    .portfolio-item-modern .portfolio-image,
+    .portfolio-item-modern > a > img,
+    .portfolio-item-modern > img {
+        height: 280px;
+    }
+    
+    .portfolio-item-modern::before {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-item-modern {
+        min-height: 460px;
+    }
+    
+    .portfolio-item-modern .portfolio-info {
+        padding: 28px 24px;
+    }
+}
+
 /* ==========================================   
    STATS, ABOUT, TEAM, BREADCRUMBS SECTIONS
    ========================================== */
